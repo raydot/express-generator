@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+
+const testvar = process.env.REACT_APP_DB_TEST
+
 //// LETS TEST THAT MYSQL CONNECTION ////
 var mysql = require('mysql')
 var connection = mysql.createConnection({
@@ -11,6 +14,10 @@ var connection = mysql.createConnection({
 });
 
 connection.connect(function(err) {
+
+	console.log("Let's try to connect!")
+	console.log("test:", testvar)
+
 	if (err) {
 		console.error('Your stuff is broke!', err.stack)
 		return
